@@ -1,4 +1,5 @@
 from flask import Blueprint
+from models.Post import Post
 
 posts = Blueprint('posts',__name__)
 
