@@ -3,7 +3,7 @@ from config import app
 from config import db
 from posts.index import posts
 
-app.register_blueprint(posts)
+app.register_blueprint(posts, url_prefix='/posts')
 
 db.create_all()
 
