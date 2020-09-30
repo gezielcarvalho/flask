@@ -12,14 +12,22 @@ posts = Blueprint('posts',__name__)
 def new():
     return render_template('posts/new.html')
 
+@posts.route('/', methods=['GET'])
+def index():
+
+    posts = Post.query.order_by(Post.id)
+
+    return render_template('posts/index.html', posts=posts)
+
 @posts.route('/', methods=['POST'])
 def create():
-    post = Post(request.form['title'], request.form['conteudo'])
+
+    post = Post(request.form['title'], request.form['body'])
 
     db.session.add(post)
     db.session.commit()
 
-    return redirect(url_for('posts.new'))
+    return redirect(url_for('posts.index'))
 
 
 

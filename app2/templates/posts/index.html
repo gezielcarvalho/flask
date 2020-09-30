@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Título</th>
+            <th>Conteúdo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%- for post in posts%}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.body }}</td>
+            </tr>
+        {%- endfor%}
+    </tbody>
+</table>
+{% endblock %}
