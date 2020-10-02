@@ -30,5 +30,13 @@ def create():
     return redirect(url_for('posts.index'))
 
 
+@posts.route('/<int:id>', methods=['DELETE'])
+def remove(id):
+    post = Post.query.get(id)
+
+    db.session.delete(post)
+    db.session.commit()
+
+    return redirect(url_for('posts.index'))
 
 
